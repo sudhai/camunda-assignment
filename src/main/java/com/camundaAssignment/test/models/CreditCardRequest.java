@@ -15,6 +15,5 @@ public class CreditCardRequest {
     private String lastName;
     private int age;
     private CardType cardType;
-    private Long mobileNumber;
     private String emailId;
 }
