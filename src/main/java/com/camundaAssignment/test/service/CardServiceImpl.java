@@ -8,9 +8,7 @@ import org.camunda.bpm.engine.RuntimeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.EnumSet;
-import java.util.List;
+import java.util.*;
 
 @Slf4j
 @Service
@@ -36,7 +34,9 @@ public class CardServiceImpl implements CardService{
     public void requestCard(CreditCardRequest request) {
         log.info("Inside request card service method");
 
-        String processInstanceId = runtimeService.startProcessInstanceByKey("Process_0kc628f").getProcessInstanceId();
+        Map<String,Object> variables = new HashMap<>();
+        variables.put("creditCardRequest",request);
+        String processInstanceId = runtimeService.startProcessInstanceByKey("Process_0kc628f",variables).getProcessInstanceId();
 
         log.info("started credit card request process with instance id: "+processInstanceId);
     }

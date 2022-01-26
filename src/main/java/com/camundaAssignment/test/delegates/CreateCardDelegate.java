@@ -11,5 +11,6 @@ public class CreateCardDelegate implements JavaDelegate {
     @Override
     public void execute(DelegateExecution delegateExecution) throws Exception {
         log.info("Inside create card delegate success");
+        log.info("Create card for request: "+delegateExecution.getVariable("creditCardRequest"));
     }
 }
