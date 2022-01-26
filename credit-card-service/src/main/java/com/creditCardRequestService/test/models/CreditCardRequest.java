@@ -5,15 +5,24 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.io.Serializable;
+
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class CreditCardRequest {
+public class CreditCardRequest implements Serializable {
 
     private String firstName;
     private String lastName;
-    private int age;
     private CardType cardType;
-    private String emailId;
+
+    @Override
+    public String toString() {
+        return "CreditCardRequest{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", cardType=" + cardType +
+                '}';
+    }
 }
