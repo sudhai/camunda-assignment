@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_0b2u0gj" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.12.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.15.0">
+  <bpmn:process id="Process_0kc628f" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1" name="start the credit card request process" camunda:asyncAfter="true">
+      <bpmn:outgoing>Flow_17by65t</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_17by65t" sourceRef="StartEvent_1" targetRef="Activity_1tcwewe" />
+    <bpmn:endEvent id="Event_1voduug" name="end of process">
+      <bpmn:incoming>Flow_0fcbyg1</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:serviceTask id="Activity_1tcwewe" name="Register a Product" camunda:delegateExpression="${registerProduct}">
+      <bpmn:incoming>Flow_17by65t</bpmn:incoming>
+      <bpmn:outgoing>Flow_12kwkno</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_12kwkno" sourceRef="Activity_1tcwewe" targetRef="Activity_1r4rzrj" />
+    <bpmn:sequenceFlow id="Flow_0fcbyg1" sourceRef="Activity_1r4rzrj" targetRef="Event_1voduug" />
+    <bpmn:serviceTask id="Activity_1r4rzrj" name="Create Card" camunda:delegateExpression="${createProduct}">
+      <bpmn:incoming>Flow_12kwkno</bpmn:incoming>
+      <bpmn:outgoing>Flow_0fcbyg1</bpmn:outgoing>
+    </bpmn:serviceTask>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_0kc628f">
+      <bpmndi:BPMNEdge id="Flow_0fcbyg1_di" bpmnElement="Flow_0fcbyg1">
+        <di:waypoint x="600" y="117" />
+        <di:waypoint x="692" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_12kwkno_di" bpmnElement="Flow_12kwkno">
+        <di:waypoint x="440" y="117" />
+        <di:waypoint x="500" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_17by65t_di" bpmnElement="Flow_17by65t">
+        <di:waypoint x="208" y="117" />
+        <di:waypoint x="340" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Event_1voduug_di" bpmnElement="Event_1voduug">
+        <dc:Bounds x="692" y="99" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="674" y="142" width="73" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_17jgfhw_di" bpmnElement="Activity_1tcwewe">
+        <dc:Bounds x="340" y="77" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1f5gdsr_di" bpmnElement="Activity_1r4rzrj">
+        <dc:Bounds x="500" y="77" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="172" y="99" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="156" y="142" width="70" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

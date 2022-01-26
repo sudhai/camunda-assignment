@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 2,
+  "components": [
+    {
+      "label": "First Name",
+      "type": "textfield",
+      "id": "Field_100if5w",
+      "key": "field_0jea0qj",
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "label": "Last Name",
+      "type": "textfield",
+      "id": "Field_0i6oqcc",
+      "key": "field_0w696i9",
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "values": [
+        {
+          "value": "bronze",
+          "label": "Bronze"
+        },
+        {
+          "label": "Gold",
+          "value": "Gold"
+        }
+      ],
+      "label": "Credit Card Type",
+      "type": "select",
+      "id": "Field_1nonxx4",
+      "key": "field_0zkmya8"
+    },
+    {
+      "action": "submit",
+      "label": "Confirm",
+      "type": "button",
+      "id": "Field_0dsrdxe",
+      "key": "field_06sb5hu"
+    }
+  ],
+  "type": "default",
+  "id": "Form_0g826gv"
+}
