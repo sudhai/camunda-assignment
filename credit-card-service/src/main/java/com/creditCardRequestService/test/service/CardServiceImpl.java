@@ -31,7 +31,7 @@ public class CardServiceImpl implements CardService{
     }
 
     @Override
-    public void requestCard(CreditCardRequest request) {
+    public String requestCard(CreditCardRequest request) {
         log.info("Inside request card service method");
 
         Map<String,Object> variables = new HashMap<>();
@@ -39,5 +39,6 @@ public class CardServiceImpl implements CardService{
         String processInstanceId = runtimeService.startProcessInstanceByKey("Process_0kc628f",variables).getProcessInstanceId();
 
         log.info("started credit card request process with instance id: "+processInstanceId);
+        return processInstanceId;
     }
 }

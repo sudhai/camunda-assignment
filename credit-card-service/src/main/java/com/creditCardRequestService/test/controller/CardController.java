@@ -25,7 +25,6 @@ public class CardController {
     @PostMapping("/requestCard")
     public ResponseEntity<String> requestCard(@RequestBody CreditCardRequest request){
 
-        service.requestCard(request);
-        return null;
+        return new ResponseEntity<>(service.requestCard(request) != null ? "Requested" : "Not Requested",HttpStatus.OK);
     }
 }

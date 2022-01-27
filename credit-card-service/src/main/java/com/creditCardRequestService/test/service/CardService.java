@@ -8,5 +8,5 @@ import java.util.List;
 public interface CardService {
     List<CreditCardProducts> getCardTypes();
 
-    void requestCard(CreditCardRequest request);
+    String requestCard(CreditCardRequest request);
 }
